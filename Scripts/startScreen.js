@@ -17,11 +17,11 @@ const startBtn = document.querySelector('button');
 const restartBtn = document.querySelector('.restart');
 const resetBtn = document.querySelector('.reset');
 
-restartBtn.addEventListener('click', stratGame);
-startBtn.addEventListener('click', stratGame);
+restartBtn.addEventListener('click', startGame);
+startBtn.addEventListener('click', startGame);
 resetBtn.addEventListener('click', resetGame);
 
-function stratGame(){
+function startGame(){
     deleteBoard();
     resetInvetory();
     setGrid();
@@ -43,8 +43,7 @@ function deleteBoard(){
 
 function resetInvetory(){
     for(let key in bd.inventory){
-        bd.inventory[key] = 0;
-        bd.changeInventoryCount(key, 0);
+        bd.changeInventoryCount(key, -bd.inventory[key]);
     }
 }
 
@@ -72,6 +71,7 @@ function newGridCell(cls, i, j){
     tile.addEventListener('dragenter', drop.hover, false);
     tile.addEventListener('dragleave', drop.hover, false);
     tile.addEventListener('drop', drop.dropEvent, false);
+    
     bd.board.appendChild(tile);
 }
 
