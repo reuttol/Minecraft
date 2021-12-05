@@ -42,7 +42,6 @@ function deleteBoard(){
 }
 
 function resetInvetory(){
-    console.log(bd.inventory);
     for(let key in bd.inventory){
         bd.inventory[key] = 0;
         bd.changeInventoryCount(key, 0);
