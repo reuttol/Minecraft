@@ -1,4 +1,4 @@
-import { changeClass, board } from "./script.js";
+import { changeClass, board } from "./board.js";
 
 const trees = {
     1: 
@@ -84,16 +84,13 @@ export function drawRocks(){
 export function drawTrees(){
 
     const tree1 = randomize(1,4); 
-    console.log(tree1);
     // const tree2 = randomize(1,4); 
     const startX = 24-linesOfDirt;
     const startY = randomize(3,20);
-    console.log(startX, startY);
     
     for(let tile of trees[tree1].wood){
         const newX = startX + tile.x;
         const newY = startY + tile.y;
-        console.log(newX, newY);
         
         const currentTile = board.children[newX*25 + newY];
         changeClass(currentTile, "wood");
@@ -105,6 +102,3 @@ export function drawTrees(){
         changeClass(currentTile, "leaves");
     }
 }
-
-
-

@@ -6,16 +6,18 @@
       /* url("/Fonts/Minecraft.ttf") format("ttf"); */
 }
 
+html{
+    font-family: "Minecraft";
+    color: #333;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     
 }
-html{
-    font-family: "Minecraft";
-    color: #333;
-}
+
 body{
     height: 100vh;
     /* height: 97vh; */
@@ -24,6 +26,7 @@ body{
     flex-direction: column;
     /* padding: 5px 0; */
 }
+
 .welcome-page{
     height: 100vh;
     /* width: 100vw; */
@@ -35,11 +38,13 @@ body{
     align-items: center;
     background: url(Textures/landingPage-background.jpg) no-repeat center center/cover;
 }
+
 .logo{
     height: 40%;
     width: 70%;
     background: url(Textures/Minecraft-Logo-PNG.png) no-repeat center center/contain;
 }
+
 .btn{
     background-color: white;
     border: 2px solid #333;
@@ -48,6 +53,7 @@ body{
     font-family: inherit;
     font-size: 1.3rem;
 }
+
 .hidden{
     display: none;
 }
@@ -58,9 +64,11 @@ body{
     grid-template-columns: repeat(25, 1fr);
     grid-template-rows: repeat(25, 1fr);
 }
+
 .bottom{
     flex: 15;
 }
+
 .mainbar{
     /* height: auto; */
     /* width: 100vw; */
@@ -95,6 +103,7 @@ body{
     height: 100%;
     gap: 1rem;
 }
+
 .control-buttons{
     display: flex;
     flex-direction: column;
@@ -111,6 +120,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1vh;
 }
 
 .box, .box1{
@@ -121,9 +131,11 @@ body{
 .box:hover, .box1:hover{
     box-shadow: 0px 0px 4px 4px rgba(55, 55, 55, 0.7);;
 }
+
 .board div:hover{
     opacity: 0.5;
 }
+
 .tool-pickaxe{
     background: url(Textures/Pickaxe.png) no-repeat center center/cover;
 }
