@@ -57,13 +57,11 @@ tools.forEach((element) => {
 
 
 function handleSelected(event){
-    console.log("handle selected");
     let targetType = event.target.getAttribute('type');
     let targetName = event.target.getAttribute('name');
-    console.log(targetType, targetName);
+    
     const removeSelected = document.querySelector('.selected');
 
-    console.log(removeSelected);
     if(removeSelected)
         removeSelected.classList.toggle('selected');
 
@@ -158,11 +156,10 @@ function build(target){
 
 function mine(target){
     let targetClassList = target.classList;
-    console.log("1")
+
     if(!(isMineable(targetClassList) && isAccessible(target) && correctTool(targetClassList.value)) )
         // setTimeout(flicker, 0, );
         return;
-    console.log("2")
     if(targetClassList.contains(objectType.grass)){
         targetClassList = objectType.dirt;
     }
@@ -185,10 +182,10 @@ function isAccessible(tile) {
     const x = parseInt(tile.getAttribute("x"));
     const y = parseInt(tile.getAttribute("y"));
     return (
-            board.children[(x+1)*25 + y].classList.contains("sky") ||
-            board.children[(x-1)*25 + y].classList.contains("sky") ||
-            board.children[x*25 + (y+1)].classList.contains("sky") ||
-            board.children[x*25 + (y-1)].classList.contains("sky") 
+            (x<24 && board.children[(x+1)*25 + y].classList.contains("sky")) ||
+            (x>0 && board.children[(x-1)*25 + y].classList.contains("sky")) ||
+            (y<24 && board.children[x*25 + (y+1)].classList.contains("sky")) ||
+            (y>0 && board.children[x*25 + (y-1)].classList.contains("sky")) 
         );
 }
 
@@ -196,15 +193,14 @@ function isBuildable(tile) {
     const x = parseInt(tile.getAttribute("x"));
     const y = parseInt(tile.getAttribute("y"));
     return (
-            !board.children[(x+1)*25 + y].classList.contains("sky") ||
-            !board.children[(x-1)*25 + y].classList.contains("sky") ||
-            !board.children[x*25 + (y+1)].classList.contains("sky") ||
-            !board.children[x*25 + (y-1)].classList.contains("sky") 
+            (x<24 && !board.children[(x+1)*25 + y].classList.contains("sky")) ||
+            (x>0 && !board.children[(x-1)*25 + y].classList.contains("sky")) ||
+            (y>24 && !board.children[x*25 + (y+1)].classList.contains("sky")) ||
+            (y>0 && !board.children[x*25 + (y-1)].classList.contains("sky")) 
         );
 }
 
 function correctTool(material){
-    console.log(toolMaterials[select.name]);
     return toolMaterials[select.name].includes(material);
 }
 
@@ -243,10 +239,7 @@ function dropEvent(event){
     changeClass(target, select.name);
 
     const resource = document.querySelector(`[name='${select.name}']`);
-    console.log("keep", resource);
     resource.classList.toggle('selected');
-    console.log(select.type);
-    console.log(select.name);
 
     select.type = null
     select.name = null
