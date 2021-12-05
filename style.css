@@ -1,0 +1,187 @@
+@font-face {
+    font-family: "Minecraft";
+    font-style: normal;
+    font-weight: 400;
+    src: url("Fonts/Minecraft.woff") format("woff");
+      /* url("/Fonts/Minecraft.ttf") format("ttf"); */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+html{
+    font-family: "Minecraft";
+    color: #333;
+}
+body{
+    height: 100vh;
+    /* height: 97vh; */
+    /* width: 150vw; */
+    display: flex;
+    flex-direction: column;
+    /* padding: 5px 0; */
+}
+.welcome-page{
+    height: 100vh;
+    /* width: 100vw; */
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-around;
+    align-items: center;
+    background: url(Textures/landingPage-background.jpg) no-repeat center center/cover;
+}
+.logo{
+    height: 40%;
+    width: 70%;
+    background: url(Textures/Minecraft-Logo-PNG.png) no-repeat center center/contain;
+}
+.btn{
+    background-color: white;
+    border: 2px solid #333;
+    box-shadow: 0 0 0 3px #fff;
+    padding: 1rem;
+    font-family: inherit;
+    font-size: 1.3rem;
+}
+.hidden{
+    display: none;
+}
+
+.board{
+    flex: 85;
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    grid-template-rows: repeat(25, 1fr);
+}
+.bottom{
+    flex: 15;
+}
+.mainbar{
+    /* height: auto; */
+    /* width: 100vw; */
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: lightgray;
+    align-items: center;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    gap: 1vw;
+    padding: 1rem;
+}
+
+.inventory{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1.5;
+    height: 100%;
+    gap: 1rem;
+}
+
+.tools{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 1rem;
+}
+.control-buttons{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+}
+
+.blocks, .tools-options{
+    display: flex;
+    gap: 1vw;
+}
+
+.block-container, .tool-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box, .box1{
+    border: 1px solid #000;
+    height: 5vw;
+    width: 5vw;
+}
+.box:hover, .box1:hover{
+    box-shadow: 0px 0px 4px 4px rgba(55, 55, 55, 0.7);;
+}
+.board div:hover{
+    opacity: 0.5;
+}
+.tool-pickaxe{
+    background: url(Textures/Pickaxe.png) no-repeat center center/cover;
+}
+.tool-axe{
+    background: url(Textures/Axe.png) no-repeat center center/cover;
+}
+.tool-shovel{
+    background: url(Textures/Shovel.png) no-repeat center center/cover;
+}
+.sky{
+    background-color: skyblue;
+}
+.dirt{
+    background-color: burlywood;
+    background: url(Textures/dirt.png) no-repeat center center/cover;
+}
+.wood{
+    background-color: brown;
+    background: url(Textures/Wood.png) no-repeat center center/cover;
+}
+.leaves{
+    background-color: green;
+    background: url(Textures/Leaves.png) no-repeat center center/cover;
+}
+.stone{
+    background-color: lightslategray;
+    background: url(Textures/Stone.png) no-repeat center center/cover;
+}
+.grass{
+    background-color: lightgreen;
+    background: url(Textures/GrassBlock.png) no-repeat center center/cover;
+}
+.hovered{
+    opacity: 0.5;
+}
+.selected{
+    opacity: 0.5;
+}
+
+@media (max-width: 500px) {
+    .inventory, .tools{
+        gap: 5px;
+        height: auto;
+        margin: 5px 0;
+    }
+    .mainbar{
+        flex-wrap: wrap;
+    }
+    .btn{
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+    .tools-options{
+        gap: 8px
+    }
+    .control-buttons{
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+    }
+}
